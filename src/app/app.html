@@ -1,0 +1,12 @@
+<app-global-spinner />
+<app-header  testComm="Ruddy D" (headerEmitter)="selectedMode = $event"/>
+<app-sub-nav />
+<main>
+    test {{selectedMode}}
+    <p>test en dur {{ 'H' | civilite }}</p>
+    <p>test en dur {{ 'F' | civilite }}</p>
+    <p>test en dur {{ genreTest | civilite }}</p>
+    <app-container  class="app-container"/>
+    <app-global-spinner />
+</main>
+<app-footer />
