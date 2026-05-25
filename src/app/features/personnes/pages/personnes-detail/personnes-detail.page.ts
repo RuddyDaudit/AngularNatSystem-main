@@ -1,27 +1,19 @@
-import { Component, input, inject, OnInit , InputSignal} from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { Component, Input, OnInit } from '@angular/core';
+import { Personne } from '../../../../shared/model/personnes.model';
+import { Button } from 'primeng/button';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-personnes-detail',
-  imports: [],
+  standalone: true,
+  imports: [Button, RouterLink],
   templateUrl: './personnes-detail.page.html',
-  styleUrl: './personnes-detail.page.scss',
 })
-export class PersonnesDetailPage{
-/*
-  readonly #activatedRoute: ActivatedRoute = inject(ActivatedRoute);
-  persId: string | null | undefined;
+export class PersonnesDetailPage implements OnInit {
+  @Input() personne!: Personne;
 
-  ngOnInit(): void { 
-    this.persId = this.#activatedRoute.snapshot.paramMap.get('persId');
-
-    this.#activatedRoute.paramMap.subscribe({
-      next: (params): void => { 
-        this.persId = params.get('persId')
-      }
-    })
+  ngOnInit() {
+    console.log('Données de la personne reçues :', this.personne);
   }
-    */
-
-  persId:InputSignal<string | undefined | null > = input<string | undefined | null >()
 }

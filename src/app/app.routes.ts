@@ -12,12 +12,16 @@ export const routes: Routes = [
         loadChildren:() => import('./features/personnes/personnes.routes').then(rte => rte.personnesRoutes)
     },
     {
+        path:'pays',
+        loadChildren:() =>import('./features/pays/pays.routes').then(rte => rte.paysRoutes)
+    },
+    {
         path: '',
         redirectTo: 'home',
         pathMatch:'full'
     },
     {
-        path: '**',
-        redirectTo:'home'
+      path: '**',
+      loadComponent: () => import('./core/not-found/not-found.page').then(rte => rte.NotFoundPage)
     }
 ];

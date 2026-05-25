@@ -9,9 +9,10 @@ import { FooterLayout } from "./core/layout/footer/footer/footer.layout";
 import { CbPipe } from './shared/pipes/cb-pipe';
 
 
+
 @Component({
   selector: 'app-root',
-  imports: [CbPipe, HeaderLayout, SubNavLayout, ContainerLayout, GlobalSpinnerLayout, FooterLayout],
+  imports: [HeaderLayout, SubNavLayout, ContainerLayout, GlobalSpinnerLayout, FooterLayout],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

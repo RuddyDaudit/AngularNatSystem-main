@@ -1,0 +1,6 @@
+[
+  { "id": 1, "nom": "Dupont", "prenom": "Jean", "age": 34, "salaire":2000, "pays": "France" },
+  { "id": 2, "nom": "Smith", "prenom": "John", "age": 28, "salaire": 2000, "pays": "USA" },
+  { "id": 3, "nom": "Müller", "prenom": "Hans", "age": 45, "salaire": 2000, "pays": "Allemagne" },
+  { "id": 4, "nom": "Rossi", "prenom": "Mario", "age": 52, "salaire": 2000, "pays": "Italie" }
+]

@@ -1,2 +1,13 @@
-<p>personnes-detail works!</p>
-personne id = {{persId()}}
+@if (personne) {
+  <div>
+    <p><span class="inline-block w-36 text-right font-bold">Id</span> : {{ personne.id }}</p>
+    <p><span class="inline-block w-36 text-right font-bold">Nom</span> : {{ personne.nom }}</p>
+    <p><span class="inline-block w-36 text-right font-bold">Prenom</span> : {{ personne.prenom }}</p>
+  </div>
+} @else {
+  <p class="text-red-500 p-4">Utilisateur introuvable</p>
+}
+
+<button routerLink="/personnes/list" class="text-sm text-blue-600 hover:underline mb-4 block">
+  ← Retour à la liste
+</button>

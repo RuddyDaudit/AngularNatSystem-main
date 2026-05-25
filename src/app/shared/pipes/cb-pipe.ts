@@ -7,6 +7,6 @@ import { CiviliteType } from '../civilite.type';
 })
 export class CbPipe implements PipeTransform {
   transform(value: CiviliteType): string{
-    return value === 'Mr' || value === 'H' ? 'Mr' : 'Madame';
+    return value === 'Mr' || value === 'H' ? 'Monsieur' : 'Madame';
   }
 }

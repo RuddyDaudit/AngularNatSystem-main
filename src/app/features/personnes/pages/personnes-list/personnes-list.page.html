@@ -1,6 +1,64 @@
-<div class = "flex justify-end border border-gray-600">
-    <p-button  label = "ajouter" icon="pi pi-plus" severity="success" (onClick)="addPersonne()">
-    </p-button>
-</div>
+<p-dialog
+  [(visible)]="isDialogVisiblie"
+  header="Ajout d'une personne"
+  [modal]="true"
+  [style]="{ width: '450px' }"
+  styleClass="p-fluid">
+  <div class="p-4">
+    <p class="text-gray-600">Le formulaire d'ajout viendra s'insérer ici.</p>
+  </div>
+</p-dialog>
 
-<p-dialog [(visible)] = "isDialogVisiblie" header = "Ajout d'une personne"></p-dialog>
+<div class="w-full bg-white">
+
+  <p-table
+    [value]="personnesCrud.personnesSignal()"
+    [rows]="10"
+    [paginator]="true"
+    [tableStyle]="{ 'min-width': '100%' }">
+
+    <ng-template pTemplate="caption">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-4 bg-gray-50/50 border-b border-gray-200">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-800">Liste des Personnes</h2>
+          <p class="text-sm text-gray-500 mt-1">Gérez les utilisateurs et leurs informations de provenance.</p>
+        </div>
+
+        <p-button
+          label="Ajouter une personne"
+          icon="pi pi-plus"
+          severity="success"
+          styleClass="shadow-sm"
+          (onClick)="addPersonne()">
+        </p-button>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr class="bg-gray-50 border-b border-gray-200 text-gray-700">
+        <th class="p-4 text-left font-semibold w-1/12">ID</th>
+        <th class="p-4 text-left font-semibold w-3/12">Prénom</th>
+        <th class="p-4 text-left font-semibold w-3/12">Nom</th>
+        <th class="p-4 text-left font-semibold w-2/12">Âge</th>
+        <th class="p-4 text-left font-semibold w-3/12">Pays</th>
+        <th class="p-4 text-left font-semibold w-3/12">Salaire</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-personne>
+      <tr [routerLink]="['../detail', personne.id]" class="border-b border-gray-100 hover:bg-gray-50/70 transition-colors">
+        <td class="p-4 text-gray-600 font-medium">{{ personne.id }}</td>
+        <td class="p-4 text-gray-800">{{ personne.prenom }}</td>
+        <td class="p-4 text-gray-800 uppercase font-semibold text-sm tracking-wide">{{ personne.nom }}</td>
+        <td class="p-4 text-gray-600">{{ personne.age }} ans</td>
+        <td class="p-4">
+            <span class="inline-flex items-center px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-md border border-blue-100">
+              {{ personne.pays }}
+            </span>
+        </td>
+        <td class="p-4 text-gray-600">{{ personne.salaire | currency: 'EUR' }} </td>
+      </tr>
+    </ng-template>
+
+  </p-table>
+</div>
